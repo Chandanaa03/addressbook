@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AddressBook;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,38 +7,36 @@ using System.Threading.Tasks;
 
 namespace AddressBook
 {
-    public class Book
+    class Book
     {
         private List<Contact> contactList;
-
         public Book()
         {
             contactList = new List<Contact>();
         }
-
-        public void addContacts(string FirstName, string LastName, string Address, string City, string State, int zipcode, long PhoneNumber, string Email)
+        public void addContacts(string FirstName, string LastName, string address, string city, string state, int zip, long phoneNumber, string email)
         {
-
+            
             Contact contact = new Contact();
-
+           
             contact.FirstName = FirstName;
             contact.LastName = LastName;
-            contact.Address = Address;
-            contact.City = City;
-            contact.State = State;
-            contact.zipcode = zipcode;
-            contact.PhoneNumber = PhoneNumber;
-            contact.Email = Email;
-
+            contact.Address = address;
+            contact.City = city;
+            contact.State = state;
+            contact.zipcode = zip;
+            contact.PhoneNumber = phoneNumber;
+            contact.Email = email;
+            
             contactList.Add(contact);
         }
-
+        
         public void print()
         {
-
+          
             foreach (Contact contact in contactList)
             {
-
+                
                 Console.WriteLine("FirstName: " + contact.FirstName);
                 Console.WriteLine("LastName: " + contact.LastName);
                 Console.WriteLine("Address: " + contact.Address);
@@ -50,7 +49,7 @@ namespace AddressBook
         }
         public void edit(string firstName, string lastName)
         {
-           
+            
             Contact contactToBeEdited = null;
 
             
@@ -59,10 +58,10 @@ namespace AddressBook
                 if (contact.FirstName == firstName && contact.LastName == lastName)
                     contactToBeEdited = contact;
             }
-           
+            
             if (contactToBeEdited == null)
             {
-                
+               
                 Console.WriteLine("No such contact exists");
                 return;
             }
@@ -84,12 +83,14 @@ namespace AddressBook
                 Console.WriteLine("Enter 7 to edit PhoneNumber");
                 Console.WriteLine("Enter 8 to edit Email Id");
                 Console.WriteLine("Enter 9 if Editing is done");
-                
+                Console.WriteLine("Enter 10 if Delete is done");
+
+               
                 int choice = Convert.ToInt32(Console.ReadLine());
                
                 switch (choice)
                 {
-                  
+                   
                     case 1:
                         Console.WriteLine("Enter new FirstName");
                         string fName = Console.ReadLine();
@@ -107,13 +108,13 @@ namespace AddressBook
                         string address = Console.ReadLine();
                         contactToBeEdited.Address = address;
                         break;
-                   
+                    
                     case 4:
                         Console.WriteLine("Enter new City");
                         string city = Console.ReadLine();
                         contactToBeEdited.City = city;
                         break;
-                  
+                   
                     case 5:
                         Console.WriteLine("Enter new State");
                         string state = Console.ReadLine();
@@ -131,7 +132,7 @@ namespace AddressBook
                         long phoneNumber = long.Parse(Console.ReadLine());
                         contactToBeEdited.PhoneNumber = phoneNumber;
                         break;
-                   
+               
                     case 8:
                         Console.WriteLine("Enter new Email Id");
                         string email = Console.ReadLine();
@@ -142,10 +143,11 @@ namespace AddressBook
                         Console.WriteLine("Editing done.New Contact :-");
                         this.printSpecificContact(contactToBeEdited);
                         return;
+
                 }
             }
         }
-       
+    
         public void printSpecificContact(Contact contact)
         {
             Console.WriteLine("FirstName: " + contact.FirstName);
@@ -157,6 +159,23 @@ namespace AddressBook
             Console.WriteLine("PhoneNumber: " + contact.PhoneNumber);
             Console.WriteLine("Email id: " + contact.Email);
         }
+        public void delete(string firstName, string lastName)
+        {
+            Contact contactToBeDeleted = null;
+            foreach (Contact contact in this.contactList)
+            {
+                if (contact.FirstName == firstName && contact.LastName == lastName)
+                {
+                    contactToBeDeleted = contact;
+                    this.contactList.Remove(contactToBeDeleted);
+                    break;
+                }
+            }
+            if (contactToBeDeleted == null)
+                Console.WriteLine("No such contact exists");
+            else
+                Console.WriteLine("Deletion Done.");
+        }
+
     }
 }
-    
