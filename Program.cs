@@ -77,11 +77,15 @@ namespace AddressBook
 
                         break;
                     case 9:
-                        newaddressbook.view_person_city_state();
+                        addressBook.view_person_city_state();
                         break;
-                    case 10 :
+                    case 10:
+                        addressBook.Count_person_city_state();
+                        break;
+                    case 11 :
                         flag = false;
                         break;
+
                     default:
 
                         Console.WriteLine("Invalid Choice");
