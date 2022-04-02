@@ -172,9 +172,13 @@ namespace AddressBook
                 }
             }
             if (contactToBeDeleted == null)
+            {
                 Console.WriteLine("No such contact exists");
+            }
             else
+            {
                 Console.WriteLine("Deletion Done.");
+            }
         }
 
     }
