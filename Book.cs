@@ -166,6 +166,34 @@ namespace AddressBook
 
 
         }
+        public void view_person_city_state()
+        {
+            Console.WriteLine("Enter your Choice for a Person view in");
+            Console.WriteLine("\n1.City \n2.State");
+            int option = Convert.ToInt32(Console.ReadLine());
+            switch (option)
+            {
+                case 1:
+                    Console.WriteLine("Enter City Name:");
+                    String City = Console.ReadLine();
+
+                    foreach (Contact data in this.AddressList.FindAll(e => e.City == City))
+                    {
+                        Console.WriteLine(data.FirstName + " " + data.LastName + " is from " + data.City);
+                    }
+                    break;
+                case 2:
+                    Console.WriteLine("Enter State Name:");
+                    String State = Console.ReadLine();
+
+                    foreach (Contact data in this.AddressList.FindAll(e => e.State == State))
+                    {
+                        Console.WriteLine(data.FirstName + " " + data.LastName + " is from " + data.State);
+                    }
+                    break;
+
+            }
+        }
     }
 }
     
