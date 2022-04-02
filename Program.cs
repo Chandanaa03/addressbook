@@ -13,11 +13,17 @@ namespace AddressBook
 
             AddToContacts(addressBook);
             AddToContacts(addressBook);
+            Console.WriteLine("Enter FirstName of Contact to be edited");
+            string FirstName = Console.ReadLine();
+            Console.WriteLine("Enter LastName of Contact to be edited");
+            string LastName= Console.ReadLine();
+            addressBook.edit(FirstName, LastName);
+            Console.ReadLine();
 
             addressBook.print();
             Console.ReadLine();
         }
-        //adding contacts
+       
         public static  void AddToContacts(Book addressBook)
         {
             Console.WriteLine("Enter FirstName");
