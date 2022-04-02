@@ -6,47 +6,75 @@ namespace AddressBook
     {
         static void Main(string[] args)
         {
-            
+
             Console.WriteLine("Welcome to Address Book Program");
 
             Book addressBook = new Book();
 
-            AddToContacts(addressBook);
-            AddToContacts(addressBook);
-            Console.WriteLine("Enter how many contacts you want to add");
-            int number = Convert.ToInt32(Console.ReadLine());
-            
-            for (int number_i = 1; number_i <= number; number_i++)
+            Contact newcontact = new Contact();
+            bool flag = true;
+            while (flag)
             {
-                AddToContacts(addressBook);
+                Console.WriteLine("Enter Number to Execute the Address book Program \n1. Create contacts \n2. Add contact \n3. Edit contact \n4. Delete contact \n5. Add contact \n6. Add multiple Address Book with unique name \n7. Exit");
+                int option = Convert.ToInt32(Console.ReadLine());
+              
+                switch (option)
+                {
+                    case 1:
+                        Console.WriteLine("Enter the Contact Information FirstName, LastName, Address,City, State, zipcode, PhoneNumber , Email ");
+                        newcontact.FirstName = Console.ReadLine();
+                        newcontact.LastName = Console.ReadLine();
+                        newcontact.Address = Console.ReadLine();
+                        newcontact.City = Console.ReadLine();
+                        newcontact.State = Console.ReadLine();
+                        newcontact.Email = Console.ReadLine();
+                        break;
+                    case 2:
+                        Console.WriteLine("Enter the Contact Information FirstName, LastName, Address,City, State, zipcode, PhoneNumber and Email");
+                        newcontact.FirstName = Console.ReadLine();
+                        newcontact.LastName = Console.ReadLine();
+                        newcontact.Address = Console.ReadLine();
+                        newcontact.City = Console.ReadLine();
+                        newcontact.State = Console.ReadLine();
+                        newcontact.Email = Console.ReadLine();
+                        addressBook.AddContact(newcontact);
+                        addressBook.Display();
+                        break;
+                    case 3:
+                        addressBook.Editexistingcontact();
+                        addressBook.Display();
+                        break;
+                    case 4:
+                        addressBook.Deletecontact();
+                        addressBook.Display();
+                        break;
+                    case 5:
+                        Console.WriteLine("Enter the Contact Information FirstName, LastName, Address,City, State, zipcode, PhoneNumber and Email");
+                        newcontact.FirstName = Console.ReadLine();
+                        newcontact.LastName = Console.ReadLine();
+                        newcontact.Address = Console.ReadLine();
+                        newcontact.City = Console.ReadLine();
+                        newcontact.State = Console.ReadLine();
+                        newcontact.Email = Console.ReadLine();
+                        addressBook.AddContact(newcontact);
+                        addressBook.Display();
+                        break;
+                    case 6:
+                        Console.WriteLine("Enter the Unique Contact to be added: ");
+                        string name = Console.ReadLine();
+                        addressBook.AddUniqueContact(name);
+                        addressBook.DisplayUniqueContacts();
+                        break;
+                    case 7:
+                        flag = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Choice");
+                        break;
+                }
             }
-
-            addressBook.print();
-            Console.ReadLine();
-
-        }
-        public static  void AddToContacts(Book addressBook)
-        {
-            Console.WriteLine("Enter FirstName");
-            string FirstName = Console.ReadLine();
-            Console.WriteLine("Enter LastName");
-            string LastName = Console.ReadLine();
-            Console.WriteLine("Enter Address");
-            string Address = Console.ReadLine();
-            Console.WriteLine("Enter City");
-            string City = Console.ReadLine();
-            Console.WriteLine("Enter State");
-            string State = Console.ReadLine();
-            Console.WriteLine("Enter Zipcode");
-            int Zipcode = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter PhoneNumber");
-            long PhoneNumber = long.Parse(Console.ReadLine());
-            Console.WriteLine("Enter Email id");
-            string Email = Console.ReadLine();
-            addressBook.addContacts(FirstName, LastName, Address, City, State, Zipcode, PhoneNumber, Email);
-            Console.ReadLine();
-
         }
     }
 }
-    
+
+
