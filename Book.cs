@@ -134,6 +134,8 @@ namespace AddressBook
                     }
 
                 }
+               Console.WriteLine("UniqueContacts does not exist... Please create a UniquecontactList");
+               return;
              }
         
     }
