@@ -76,7 +76,10 @@ namespace AddressBook
                         addressBook.Search_person_city_state();
 
                         break;
-                    case 9 :
+                    case 9:
+                        newaddressbook.view_person_city_state();
+                        break;
+                    case 10 :
                         flag = false;
                         break;
                     default:
