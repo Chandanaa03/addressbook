@@ -13,22 +13,17 @@ namespace AddressBook
 
             AddToContacts(addressBook);
             AddToContacts(addressBook);
-            Console.WriteLine("Enter FirstName of Contact to be edited");
-            string FirstName = Console.ReadLine();
-            Console.WriteLine("Enter LastName of Contact to be edited");
-            string LastName= Console.ReadLine();
-            addressBook.edit(FirstName, LastName);
-            Console.ReadLine();
+            Console.WriteLine("Enter how many contacts you want to add");
+            int number = Convert.ToInt32(Console.ReadLine());
+            
+            for (int number_i = 1; number_i <= number; number_i++)
+            {
+                AddToContacts(addressBook);
+            }
 
             addressBook.print();
             Console.ReadLine();
 
-                    Console.WriteLine("Enter FirstName of Contact to be deleted");
-                    string firstNameOfContactToBeDeleted = Console.ReadLine();
-                    Console.WriteLine("Enter LastName of Contact to be deleted");
-                    string lastNameOfContactToBeDeleted = Console.ReadLine();
-                    addressBook.delete(firstNameOfContactToBeDeleted, lastNameOfContactToBeDeleted);
-            
         }
         public static  void AddToContacts(Book addressBook)
         {
