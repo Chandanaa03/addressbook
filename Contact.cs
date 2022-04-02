@@ -16,8 +16,6 @@ namespace AddressBook
             public string State { get; set; }
             public int zipcode { get; set; }
             public long PhoneNumber { get; set; }
-
-
             public string Email { get; set; }
         
     }
