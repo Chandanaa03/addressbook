@@ -92,6 +92,10 @@ namespace AddressBook
                         addressBook.sortbycity();
                         break;
                     case 14:
+                        addressBook.Readfile();
+                        addressBook.Write();
+                        break;
+                    case 15:
                         flag = false;
                         break;
 
