@@ -205,7 +205,7 @@ namespace AddressBook
                 case 1:
                     Console.WriteLine("Enter your City");
                     String city = Console.ReadLine();
-                    foreach (Contact personal_Details in this.AddressList.FindAll(c => c.city == city))
+                    foreach (Contact personal_Details in this.AddressList.FindAll(c => c.City == city))
                     {
                         count = this.AddressList.Count();
                     }
@@ -214,12 +214,20 @@ namespace AddressBook
                 case 2:
                     Console.WriteLine("Enter your State");
                     String state = Console.ReadLine();
-                    foreach (Contact personal_Details in this.AddressList.FindAll(c => c.state == state))
+                    foreach (Contact personal_Details in this.AddressList.FindAll(c => c.State == state))
                     {
                         count = this.AddressList.Count();
                     }
                     Console.WriteLine(count);
                     break;
+            }
+
+        }
+        public void SortbyName()
+        {
+            foreach (KeyValuePair<string, List<Contact>> sortname in MultipleBook.OrderBy(key => key.Key))
+            {
+                Console.WriteLine("Name of person: {0}", sortname.Key);
             }
 
         }
