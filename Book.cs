@@ -231,6 +231,20 @@ namespace AddressBook
             }
 
         }
+        public void sortbystate()
+        {
+            foreach(KeyValuePair<string, List<Contact>> sortstate in MultipleBook.OrderBy(key => key.Key))
+            {
+                Console.WriteLine("State: {0}", sortstate.Key);
+            }
+        }
+        public void sortbycity()
+        {
+            foreach (KeyValuePair<string, List<Contact>> sortcity in MultipleBook.OrderBy(key => key.Key))
+            {
+                Console.WriteLine("State: {0}", sortcity.Key);
+            }
+        }
     }
 }
     
