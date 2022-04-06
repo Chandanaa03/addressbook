@@ -82,7 +82,10 @@ namespace AddressBook
                     case 10:
                         addressBook.Count_person_city_state();
                         break;
-                    case 11 :
+                    case 11:
+                        addressBook.SortbyName();
+                        break;
+                    case 12:
                         flag = false;
                         break;
 
