@@ -86,6 +86,12 @@ namespace AddressBook
                         addressBook.SortbyName();
                         break;
                     case 12:
+                        addressBook.sortbystate();
+                        break;
+                    case 13:
+                        addressBook.sortbycity();
+                        break;
+                    case 14:
                         flag = false;
                         break;
 
