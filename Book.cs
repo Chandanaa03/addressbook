@@ -245,6 +245,32 @@ namespace AddressBook
                 Console.WriteLine("State: {0}", sortcity.Key);
             }
         }
+        public void Readfile()
+        {
+            string filepath = @"D:\AddressBook\AddressBook\AddressBook\Book.cs";
+
+            using (StreamReader reader = File.OpenText(filepath))
+            {
+                string line = " ";
+                while ((line = reader.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                }
+            }
+
+        }
+        public void Write()
+        {
+            
+            String path = @"D:\AddressBook\AddressBook\AddressBook\Book.cs";
+            using (StreamWriter sw = File.AppendText(path))
+            {
+                foreach (var contact in AddressList)
+                {
+                    sw.WriteLine("Firstname: " + contact.FirstName + "\nLastname: " + contact.LastName + "\nAddress: " + contact.Address + "\ncity: " + contact.City + "\nstate: " + contact.State + "\nzip: " + contact.zipcode + "\nPhoneNumber: " + contact.PhoneNumber + "\nemail: " + contact.Email);
+                }
+            }
+        }
     }
 }
     
